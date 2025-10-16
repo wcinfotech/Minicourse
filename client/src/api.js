@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
 });
 
 api.interceptors.request.use((config) => {
@@ -27,3 +27,17 @@ api.interceptors.response.use(
 );
 
 export default api;
+
+/*
+Example usage:
+
+// Auth
+// api.post('/auth/signup', { name, email, password });
+
+// Courses
+// api.get('/courses');           // fetch all courses
+// api.get('/courses/123');       // fetch specific course
+
+// Orders
+// api.post('/orders', { courseId, userId });
+*/
