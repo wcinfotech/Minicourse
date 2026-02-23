@@ -21,3 +21,4 @@ server/build
 # Logs
 logs/
 *.log
+config.bat
